@@ -6,19 +6,19 @@ XSLTPROC=xsltproc
 
 XSLT=lockpicking.xsl
 
-ZIPFILE=lockpicking-$(DATE).zip
+PDFZIPFILE=lockpicking-pdf-$(DATE).zip
 HTMLZIPFILE=lockpicking-html-$(DATE).zip
 
 lockpicking.pdf:
 	# That's right, 3 times (to get references right)
 	pdflatex lockpicking.tex && rm lockpicking.pdf && pdflatex lockpicking.tex && rm lockpicking.pdf && pdflatex lockpicking.tex
 
-$(ZIPFILE): lockpicking.pdf
+$(PDFZIPFILE): lockpicking.pdf
 	# TODO: avoid zipbomb
-	zip $(ZIPFILE) lockpicking.tex lockpicking.pdf README.markdown images/*
+	zip $(PDFZIPFILE) lockpicking.tex lockpicking.pdf Makefile README.markdown images/*
 
 $(HTMLZIPFILE): lockpicking.html
-	zip $(HTMLZIPFILE) lockpicking.html tralics.css images/*
+	zip $(HTMLZIPFILE) README.markdown lockpicking.tex lockpicking.html tralics.css images/*
 
 lockpicking.xml:
 	# latexml --noparse --inputencoding=utf8 --destination=lockpicking.xml lockpicking.tex
@@ -31,7 +31,7 @@ lockpicking.html: lockpicking.xml
 
 xhtml: lockpicking.html
 
-zip: $(ZIPFILE)
+zip: $(PDFZIPFILE)
 zip-html: $(HTMLZIPFILE)
 
 clean:
