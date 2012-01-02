@@ -1,7 +1,8 @@
 
 
 lockpicking.pdf:
-	pdflatex lockpicking.tex
+	# That's right, 3 times (to get references right)
+	pdflatex lockpicking.tex && rm lockpicking.pdf && pdflatex lockpicking.tex && rm lockpicking.pdf && pdflatex lockpicking.tex
 
 lockpicking.zip: lockpicking.pdf
 	# TODO: avoid zipbomb
