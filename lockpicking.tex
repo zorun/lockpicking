@@ -20,6 +20,10 @@
 
 \newcommand{\chapref}[1]{\ref{chap:#1} (page~\pageref{chap:#1})}
 
+% Needed for tralics but pdflatex doesn't like it
+%\toplevelsection{\chapter}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \def\clap#1{\hbox to 0pt{\hss #1\hss}}%
