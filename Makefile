@@ -1,4 +1,8 @@
 
+TRALICS=tralics
+XSLTPROC=xsltproc
+
+XSLT=lockpicking.xsl
 
 lockpicking.pdf:
 	# That's right, 3 times (to get references right)
@@ -9,11 +13,13 @@ lockpicking.zip: lockpicking.pdf
 	zip lockpicking.zip lockpicking.tex lockpicking.pdf images/*
 
 lockpicking.xml:
-	latexml --noparse --inputencoding=utf8 --destination=lockpicking.xml lockpicking.tex
+	# latexml --noparse --inputencoding=utf8 --destination=lockpicking.xml lockpicking.tex
+	$(TRALICS) -utf8 -utf8output -default_class=report -config=/home/zorun/AUR/tralics/src/tralics-2.14.4/confdir/report.clt lockpicking.tex
 
 xhtml: lockpicking.xml
-	mkdir -p html
-	latexmlpost --format=xhtml --novalidate --destination=html/lockpicking.html lockpicking.xml
+	#mkdir -p html
+	#latexmlpost --format=xhtml --novalidate --destination=html/lockpicking.html lockpicking.xml
+	$(XSLTPROC) -o lockpicking.html $(XSLT) lockpicking.xml
 
 zip: lockpicking.zip
 
