@@ -18,6 +18,8 @@
             citecolor=colorcite,
             pdftitle={Guide to Lock Picking (version Française)}]{hyperref}
 
+\newcommand{\chapref}[1]{\ref{chap:#1} (page~\pageref{chap:#1})}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \def\clap#1{\hbox to 0pt{\hss #1\hss}}%
@@ -67,10 +69,12 @@
 \def\title#1{\def\@title{#1}}
 \def\location#1{\def\@location{#1}}
 \def\blurb#1{\def\@blurb{#1}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
 
-\newcommand{\chapref}[1]{\ref{chap:#1} (page~\pageref{chap:#1})}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
 
 \title{[M.I.T.] Guide to Lock Picking}
 \author{Version Française}
