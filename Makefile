@@ -25,4 +25,4 @@ zip: lockpicking.zip
 
 clean:
 	rm -rf html/
-	rm -f lockpicking.{xml,log,dvi,out,pdf,tox,aux,zip,img,toc}
+	rm -f lockpicking.{xml,log,dvi,out,pdf,tox,aux,zip,img,toc,html}
